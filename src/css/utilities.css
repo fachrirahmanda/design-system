@@ -60,3 +60,34 @@
 /* Show the thumb only while hovering the container. */
 .scrollbar-hover::-webkit-scrollbar-thumb { background-color: transparent; }
 .scrollbar-hover:hover::-webkit-scrollbar-thumb { background-color: var(--scrollbar-thumb); }
+/* Slim scrollbar with a visible 4px track and small arrow buttons at both ends (like Jira).
+   Use on main scroll areas (dialogs, panels) where the scrollbar should read as a control.
+   Arrows are drawn with conic gradients so they follow the theme colors. */
+.scrollbar-track::-webkit-scrollbar { width: 12px; height: 12px; }
+.scrollbar-track::-webkit-scrollbar-track { border: 4px solid transparent; border-radius: var(--radius-full); background: var(--fill) padding-box; }
+.scrollbar-track::-webkit-scrollbar-thumb { min-height: 32px; min-width: 32px; border: 4px solid transparent; border-radius: var(--radius-full); background: var(--scrollbar-thumb-hover) padding-box; }
+.scrollbar-track::-webkit-scrollbar-thumb:hover { border-width: 3.5px; background-color: color-mix(in srgb, var(--accent) 70%, var(--scrollbar-thumb-hover)); }
+.scrollbar-track::-webkit-scrollbar-thumb:active { border-width: 3.5px; background-color: var(--accent); }
+.scrollbar-track::-webkit-scrollbar-button { display: none; }
+.scrollbar-track::-webkit-scrollbar-button:single-button:vertical:decrement,
+.scrollbar-track::-webkit-scrollbar-button:single-button:vertical:increment,
+.scrollbar-track::-webkit-scrollbar-button:single-button:horizontal:decrement,
+.scrollbar-track::-webkit-scrollbar-button:single-button:horizontal:increment {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+  background-position: center;
+}
+.scrollbar-track::-webkit-scrollbar-button:single-button:vertical:decrement { background-image: conic-gradient(from 150deg at 50% 0, var(--muted) 60deg, transparent 0); }
+.scrollbar-track::-webkit-scrollbar-button:single-button:vertical:increment { background-image: conic-gradient(from -30deg at 50% 100%, var(--muted) 60deg, transparent 0); }
+.scrollbar-track::-webkit-scrollbar-button:single-button:horizontal:decrement { background-image: conic-gradient(from 60deg at 0 50%, var(--muted) 60deg, transparent 0); }
+.scrollbar-track::-webkit-scrollbar-button:single-button:horizontal:increment { background-image: conic-gradient(from 240deg at 100% 50%, var(--muted) 60deg, transparent 0); }
+.scrollbar-track::-webkit-scrollbar-button:single-button:vertical:decrement:hover { background-image: conic-gradient(from 150deg at 50% 0, var(--accent) 60deg, transparent 0); }
+.scrollbar-track::-webkit-scrollbar-button:single-button:vertical:increment:hover { background-image: conic-gradient(from -30deg at 50% 100%, var(--accent) 60deg, transparent 0); }
+.scrollbar-track::-webkit-scrollbar-button:single-button:horizontal:decrement:hover { background-image: conic-gradient(from 60deg at 0 50%, var(--accent) 60deg, transparent 0); }
+.scrollbar-track::-webkit-scrollbar-button:single-button:horizontal:increment:hover { background-image: conic-gradient(from 240deg at 100% 50%, var(--accent) 60deg, transparent 0); }
+@supports not selector(::-webkit-scrollbar) {
+  .scrollbar-track { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb-hover) var(--fill); }
+}

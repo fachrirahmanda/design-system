@@ -62,8 +62,8 @@ kbd {
   background: var(--scrollbar-thumb) padding-box;
 }
 /* Grows a little on hover, turns accent while dragging. */
-::-webkit-scrollbar-thumb:hover { border-width: calc(var(--scrollbar-inset) - 1.5px); background-color: var(--scrollbar-thumb-hover); }
-::-webkit-scrollbar-thumb:active { border-width: calc(var(--scrollbar-inset) - 1.5px); background-color: var(--scrollbar-thumb-active); }
+::-webkit-scrollbar-thumb:hover { border-width: calc(var(--scrollbar-inset) - 1px); background-color: var(--scrollbar-thumb-hover); }
+::-webkit-scrollbar-thumb:active { border-width: calc(var(--scrollbar-inset) - 1px); background-color: var(--scrollbar-thumb-active); }
 @supports not selector(::-webkit-scrollbar) {
   * { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) transparent; }
 }

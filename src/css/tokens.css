@@ -78,9 +78,9 @@
   --ease: cubic-bezier(0.25, 0.8, 0.35, 1);
 
   /* Scrollbars */
-  --scrollbar-size: 14px;
+  --scrollbar-size: 10px;
   /* Transparent space around the thumb, so it never touches the content or the edge. */
-  --scrollbar-inset: 4px;
+  --scrollbar-inset: 2.5px;
   --scrollbar-thumb: light-dark(rgb(60 60 67 / 0.24), rgb(235 235 245 / 0.2));
   --scrollbar-thumb-hover: light-dark(rgb(60 60 67 / 0.42), rgb(235 235 245 / 0.38));
   --scrollbar-thumb-active: var(--accent);
