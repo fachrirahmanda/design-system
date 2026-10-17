@@ -1,0 +1,62 @@
+/* ---------- utilities ---------- */
+
+.stack { display: flex; flex-direction: column; gap: var(--gap, var(--space-3)); }
+.cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--gap, var(--space-2)); }
+.spread { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--gap, var(--space-3)); }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--min, 220px), 1fr)); gap: var(--gap, var(--space-4)); }
+.grow { flex: 1; min-width: 0; }
+
+.text-muted { color: var(--muted); }
+.text-accent { color: var(--accent); }
+.text-success { color: var(--success); }
+.text-warning { color: var(--warning); }
+.text-danger { color: var(--danger); }
+.text-xs { font-size: var(--text-xs); }
+.text-sm { font-size: var(--text-sm); }
+.text-md { font-size: var(--text-md); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.fw-medium { font-weight: 500; }
+.fw-semibold { font-weight: 600; }
+.tabular { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-mono); }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.m-0 { margin: 0; }
+.mt-2 { margin-top: var(--space-2); }
+.mt-4 { margin-top: var(--space-4); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.p-4 { padding: var(--space-4); }
+.p-5 { padding: var(--space-5); }
+
+.rounded { border-radius: var(--radius); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }
+.bg-surface { background: var(--surface); }
+.bg-surface-2 { background: var(--surface-2); }
+.divider { height: 1px; border: 0; margin: 0; background: var(--separator); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Scroll containers */
+.scroll-y { overflow-y: auto; overscroll-behavior: contain; }
+.scroll-x { overflow-x: auto; overscroll-behavior-x: contain; }
+/* Hide the scrollbar but keep scrolling (e.g. tab strips). */
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+/* Show the thumb only while hovering the container. */
+.scrollbar-hover::-webkit-scrollbar-thumb { background-color: transparent; }
+.scrollbar-hover:hover::-webkit-scrollbar-thumb { background-color: var(--scrollbar-thumb); }

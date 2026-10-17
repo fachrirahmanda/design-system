@@ -1,0 +1,100 @@
+/* Design tokens. Colors are light-dark(light, dark) pairs resolved by color-scheme:
+   follows the OS by default, or forced via <html data-theme="light|dark">. */
+:root {
+  color-scheme: light dark;
+
+  /* Surfaces */
+  --bg: light-dark(#f5f5f7, #000000);
+  --surface: light-dark(#ffffff, #1c1c1e);
+  --surface-2: light-dark(#f5f5f7, #2c2c2e);
+  --fill: light-dark(rgb(120 120 128 / 0.12), rgb(118 118 128 / 0.24));
+  --fill-strong: light-dark(rgb(120 120 128 / 0.2), rgb(118 118 128 / 0.36));
+  --separator: light-dark(rgb(60 60 67 / 0.12), rgb(84 84 88 / 0.55));
+  --card-edge: light-dark(rgb(0 0 0 / 0), rgb(255 255 255 / 0.06));
+
+  /* Text */
+  --text: light-dark(#1d1d1f, #f5f5f7);
+  --muted: light-dark(#6e6e73, #98989d);
+
+  /* Brand */
+  --accent: light-dark(#0071e3, #0a84ff);
+  --accent-hover: light-dark(#0077ed, #409cff);
+  --accent-soft: light-dark(rgb(0 113 227 / 0.07), rgb(10 132 255 / 0.14));
+  --on-accent: #ffffff;
+  --focus: light-dark(rgb(0 113 227 / 0.35), rgb(10 132 255 / 0.5));
+
+  /* Status */
+  --success: light-dark(#248a3d, #30d158);
+  --success-soft: light-dark(rgb(52 199 89 / 0.14), rgb(48 209 88 / 0.18));
+  --warning: light-dark(#b25000, #ff9f0a);
+  --warning-soft: light-dark(rgb(255 149 0 / 0.14), rgb(255 159 10 / 0.18));
+  --danger: light-dark(#d70015, #ff453a);
+  --danger-soft: light-dark(rgb(255 59 48 / 0.1), rgb(255 69 58 / 0.18));
+
+  /* Controls */
+  --segment-on: light-dark(#ffffff, #636366);
+  --switch-off: light-dark(#e9e9eb, #39393d);
+  --knob: #ffffff;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter Variable", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-md: 13px;
+  --text-base: 14px;
+  --text-lg: 17px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 40px;
+
+  /* Spacing (4px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+
+  /* Elevation */
+  --shadow-color: light-dark(rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.5));
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 0 0 1px var(--card-edge), 0 1px 2px var(--shadow-color), 0 8px 28px var(--shadow-color);
+  --shadow-lg: 0 0 0 1px var(--card-edge), 0 24px 64px rgb(0 0 0 / 0.3);
+  --shadow-knob: 0 1px 3px rgb(0 0 0 / 0.12), 0 0 0 0.5px rgb(0 0 0 / 0.04);
+
+  /* Motion */
+  --ease: cubic-bezier(0.25, 0.8, 0.35, 1);
+
+  /* Scrollbars */
+  --scrollbar-size: 14px;
+  /* Transparent space around the thumb, so it never touches the content or the edge. */
+  --scrollbar-inset: 4px;
+  --scrollbar-thumb: light-dark(rgb(60 60 67 / 0.24), rgb(235 235 245 / 0.2));
+  --scrollbar-thumb-hover: light-dark(rgb(60 60 67 / 0.42), rgb(235 235 245 / 0.38));
+  --scrollbar-thumb-active: var(--accent);
+
+  /* Layout */
+  --container: 1480px;
+  --gutter: 24px;
+  --z-sticky: 20;
+  --z-dropdown: 30;
+  --z-toast: 50;
+}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+@media (max-width: 860px) {
+  :root { --gutter: 16px; }
+}

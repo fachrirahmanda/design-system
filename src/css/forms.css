@@ -1,0 +1,222 @@
+/* ---------- fields ---------- */
+
+.field { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.field-label { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-2); font-size: var(--text-md); font-weight: 500; }
+.field-label output { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 600; }
+.field-error { margin: 0; font-size: var(--text-sm); color: var(--danger); }
+.hint { font-size: var(--text-sm); color: var(--muted); margin: var(--space-2) 0 0; }
+.field > .hint { margin: 0; }
+
+/* ---------- text inputs, select, textarea ---------- */
+
+.input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: var(--radius);
+  background-color: var(--fill);
+  color: var(--text);
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  transition: box-shadow 0.15s, background-color 0.15s;
+}
+.input::placeholder { color: var(--muted); }
+.input:focus { outline: none; box-shadow: 0 0 0 4px var(--focus); }
+.input:disabled { opacity: 0.5; cursor: not-allowed; }
+.input[aria-invalid="true"], .field.is-invalid .input { box-shadow: 0 0 0 1.5px var(--danger); }
+.input[aria-invalid="true"]:focus, .field.is-invalid .input:focus { box-shadow: 0 0 0 1.5px var(--danger), 0 0 0 5px var(--danger-soft); }
+textarea.input { min-height: 88px; resize: vertical; }
+select.input {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 34px;
+  cursor: pointer;
+  /* chevron drawn with gradients so it follows the theme colors */
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.input-sm { padding: 5px 10px; font-size: var(--text-md); border-radius: var(--radius-sm); }
+.input-lg { padding: 11px 14px; font-size: 15px; }
+
+/* Text before/after the value: <span class="input-affix"><input class="input"><span class="affix">px</span></span> */
+.input-affix { position: relative; display: block; }
+.input-affix > .affix {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: var(--text-md);
+  pointer-events: none;
+}
+.input-affix > .affix-start { right: auto; left: 12px; }
+.input-affix:has(> .affix:not(.affix-start)) > .input { padding-right: 40px; }
+.input-affix:has(> .affix-start) > .input { padding-left: 34px; }
+
+/* ---------- checkbox & radio ---------- */
+
+input[type="checkbox"]:not(.switch), input[type="radio"] { accent-color: var(--accent); }
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-md);
+  cursor: pointer;
+}
+.check input { width: 16px; height: 16px; margin: 0; cursor: pointer; }
+.check-list { display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* ---------- switch ---------- */
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 34px;
+  font-size: var(--text-md);
+  font-weight: 500;
+  cursor: pointer;
+}
+input.switch {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  flex-shrink: 0;
+  width: 42px;
+  height: 26px;
+  margin: 0;
+  border-radius: var(--radius-full);
+  background: var(--switch-off);
+  cursor: pointer;
+  transition: background 0.25s var(--ease);
+}
+input.switch::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--knob);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 0.2), 0 0 0 0.5px rgb(0 0 0 / 0.04);
+  transition: transform 0.25s var(--ease);
+}
+input.switch:checked { background: var(--accent); }
+input.switch:checked::before { transform: translateX(16px); }
+input.switch:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ---------- segmented control (radio group) ---------- */
+
+.segmented {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 2px;
+  padding: 2px;
+  border-radius: var(--radius);
+  background: var(--fill);
+}
+.segmented-grid { grid-auto-flow: row; grid-template-columns: repeat(var(--cols, 4), 1fr); }
+.segmented label { position: relative; }
+.segmented input { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.segmented span {
+  display: block;
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: var(--text-md);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.segmented label:hover span { background: var(--fill); }
+.segmented input:checked + span { background: var(--segment-on); font-weight: 600; box-shadow: var(--shadow-knob); }
+.segmented input:focus-visible + span { box-shadow: 0 0 0 3px var(--focus); }
+.segmented input:disabled + span { opacity: 0.4; }
+
+/* ---------- range slider ---------- */
+
+/* Thin track, white knob. --range-progress (0–100%) is kept in sync by ds.js. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 22px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--accent) var(--range-progress, 50%), var(--fill-strong) var(--range-progress, 50%));
+}
+input[type="range"]::-moz-range-track { height: 4px; border-radius: var(--radius-full); background: var(--fill-strong); }
+input[type="range"]::-moz-range-progress { height: 4px; border-radius: var(--radius-full); background: var(--accent); }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -9px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--knob);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25), 0 0 0 0.5px rgb(0 0 0 / 0.06);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--knob);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25), 0 0 0 0.5px rgb(0 0 0 / 0.06);
+}
+input[type="range"]:focus-visible { box-shadow: none; }
+input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px var(--focus); }
+input[type="range"]:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 4px var(--focus); }
+.range-labels { display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--muted); }
+
+/* ---------- color swatch input ---------- */
+
+input[type="color"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px var(--separator);
+}
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="color"]::-webkit-color-swatch { border: 0; border-radius: 50%; }
+input[type="color"]::-moz-color-swatch { border: 0; border-radius: 50%; }
+
+/* ---------- drop zone ---------- */
+
+.dropzone {
+  padding: 40px 20px;
+  border: 1.5px dashed color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 16px;
+  background: var(--accent-soft);
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s var(--ease);
+}
+.dropzone svg { color: var(--accent); }
+.dropzone-title { margin: 8px 0 0; font-size: 15px; font-weight: 500; color: var(--text); }
+.dropzone:hover { background: color-mix(in srgb, var(--accent) 11%, transparent); }
+.dropzone.is-dragover { background: color-mix(in srgb, var(--accent) 15%, transparent); border-color: var(--accent); transform: scale(1.01); }
+@media (max-width: 860px) {
+  .dropzone { padding: 28px 16px; }
+}

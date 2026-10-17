@@ -1,0 +1,22 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "description": "Basis: shared CSS and JavaScript baseline for web apps, with documentation",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && vite build -c vite.lib.config.ts && vite build -c vite.lib.config.ts --mode iife",
+    "preview": "wrangler pages dev dist --port 5174",
+    "deploy": "npm run build && wrangler pages deploy --branch main"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "wrangler": "^4.151.1"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0"
+  }
+}

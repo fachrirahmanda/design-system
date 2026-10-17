@@ -1,0 +1,69 @@
+/* Reboot: sensible element defaults on top of the tokens. */
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: var(--text-base)/1.45 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+h1, h2, h3, h4, h5, h6 { margin: 0 0 var(--space-2); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+h4 { font-size: var(--text-lg); }
+h5 { font-size: 15px; }
+h6 { font-size: var(--text-md); }
+p { margin: 0 0 var(--space-3); }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: none; box-shadow: 0 0 0 4px var(--focus); }
+
+hr { height: 1px; margin: var(--space-4) 0; border: 0; background: var(--separator); }
+
+code, kbd, pre, samp { font-family: var(--font-mono); font-size: 0.92em; }
+code { padding: 1px 5px; border-radius: 6px; background: var(--fill); }
+pre code { padding: 0; background: none; }
+kbd {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--separator), 0 1px 0 1px var(--separator);
+  font-size: 0.85em;
+  text-align: center;
+}
+
+::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+
+/* Scrollbars: thin rounded thumb on a transparent track, following the theme.
+   Chromium and Safari use ::-webkit-scrollbar (setting scrollbar-color there would switch these
+   styles off), so the standard properties are only applied where those aren't supported (Firefox). */
+::-webkit-scrollbar { width: var(--scrollbar-size); height: var(--scrollbar-size); }
+::-webkit-scrollbar-corner { background: transparent; }
+/* The track stops short of the ends, so the thumb never runs into a corner. */
+::-webkit-scrollbar-track { margin: var(--scrollbar-inset); background: transparent; }
+::-webkit-scrollbar-thumb {
+  min-width: 40px;
+  min-height: 40px;
+  border: var(--scrollbar-inset) solid transparent;
+  border-radius: var(--radius-full);
+  background: var(--scrollbar-thumb) padding-box;
+}
+/* Grows a little on hover, turns accent while dragging. */
+::-webkit-scrollbar-thumb:hover { border-width: calc(var(--scrollbar-inset) - 1.5px); background-color: var(--scrollbar-thumb-hover); }
+::-webkit-scrollbar-thumb:active { border-width: calc(var(--scrollbar-inset) - 1.5px); background-color: var(--scrollbar-thumb-active); }
+@supports not selector(::-webkit-scrollbar) {
+  * { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) transparent; }
+}

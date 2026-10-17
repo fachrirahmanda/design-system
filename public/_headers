@@ -1,0 +1,7 @@
+# Apps on other domains load the library from here: fonts and ES modules need CORS.
+/v1/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

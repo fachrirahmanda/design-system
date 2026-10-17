@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Basis Design System</title>
+    <meta name="description" content="Basis: the shared CSS and JavaScript baseline for our web apps. Tokens, components, forms and utilities with light and dark themes." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      try {
+        const t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a class="navbar-brand" href="#top">
+          <img class="navbar-logo" src="/favicon.svg" alt="" width="32" height="32" />
+          <div>
+            <p class="navbar-title">Basis</p>
+            <p class="navbar-tagline">Design system · v<span data-ds-version></span></p>
+          </div>
+        </a>
+        <nav class="navbar-nav" aria-label="Primary">
+          <a href="#install">Get started</a>
+          <a href="#colors">Foundations</a>
+          <a href="#buttons">Components</a>
+          <a href="#inputs">Forms</a>
+          <a href="#javascript">JavaScript</a>
+        </nav>
+        <div class="navbar-actions">
+          <button type="button" class="icon-btn icon-btn-plain docs-menu-btn" aria-label="Open navigation" aria-expanded="false" aria-controls="docs-sidebar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+          <div class="theme-switch" role="group" aria-label="Theme">
+            <button type="button" data-theme-value="system" aria-label="System theme" title="System">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+            </button>
+            <button type="button" data-theme-value="light" aria-label="Light theme" title="Light">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            </button>
+            <button type="button" data-theme-value="dark" aria-label="Dark theme" title="Dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="docs" id="top">
+      <aside class="docs-sidebar" id="docs-sidebar" aria-label="Documentation">
+        <div class="docs-search">
+          <input type="search" class="input input-sm" id="docs-filter" placeholder="Filter components…" aria-label="Filter components" />
+        </div>
+        <nav class="docs-nav" id="docs-nav">
+          <p class="docs-nav-group">Getting started</p>
+          <a href="#intro">Introduction</a>
+          <a href="#install">Installation</a>
+          <a href="#theming">Theming</a>
+          <p class="docs-nav-group">Foundations</p>
+          <a href="#colors">Colors</a>
+          <a href="#typography">Typography</a>
+          <a href="#spacing">Spacing</a>
+          <a href="#radius">Radius &amp; elevation</a>
+          <p class="docs-nav-group">Components</p>
+          <a href="#buttons">Buttons</a>
+          <a href="#icon-buttons">Icon buttons</a>
+          <a href="#chips">Chips</a>
+          <a href="#badges">Badges</a>
+          <a href="#alerts">Alerts</a>
+          <a href="#cards">Cards</a>
+          <a href="#navbar">Navbar</a>
+          <a href="#tabs">Tabs</a>
+          <a href="#dropdown">Dropdown</a>
+          <a href="#dialog">Dialog</a>
+          <a href="#toast">Toast</a>
+          <a href="#tooltip">Tooltip</a>
+          <a href="#accordion">Accordion</a>
+          <a href="#progress">Progress &amp; loading</a>
+          <a href="#table">Table</a>
+          <a href="#list-group">List group</a>
+          <a href="#avatar">Avatar</a>
+          <a href="#empty">Empty state</a>
+          <p class="docs-nav-group">Forms</p>
+          <a href="#inputs">Text inputs</a>
+          <a href="#select">Select &amp; textarea</a>
+          <a href="#validation">Validation</a>
+          <a href="#checks">Checkbox &amp; radio</a>
+          <a href="#switch">Switch</a>
+          <a href="#segmented">Segmented control</a>
+          <a href="#range">Range</a>
+          <a href="#color">Color</a>
+          <a href="#dropzone">Drop zone</a>
+          <p class="docs-nav-group">Layout</p>
+          <a href="#scrollbars">Scrollbars</a>
+          <p class="docs-nav-group">Reference</p>
+          <a href="#utilities">Utilities</a>
+          <a href="#javascript">JavaScript API</a>
+        </nav>
+      </aside>
+
+      <main class="docs-main">
+        <!-- ===================== GETTING STARTED ===================== -->
+
+        <section class="docs-hero" id="intro">
+          <span class="badge badge-accent">v<span data-ds-version></span></span>
+          <h1>Basis design system</h1>
+          <p class="docs-lead">The shared baseline for every app we build: design tokens, components, forms and small JavaScript behaviours, with light and dark themes. Load two files from this site and your app looks and works like the rest of the family.</p>
+          <div class="cluster">
+            <a class="btn btn-primary btn-lg" href="#install">Get started</a>
+            <a class="btn btn-lg" href="#buttons">Browse components</a>
+          </div>
+          <div class="docs-stats">
+            <div><strong>2</strong><span>files to include</span></div>
+            <div><strong>30+</strong><span>components</span></div>
+            <div><strong>0</strong><span>dependencies</span></div>
+            <div><strong>Light &amp; dark</strong><span>out of the box</span></div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="install">
+          <h2>Installation</h2>
+          <p>Add the stylesheet and script to your page. Both are served from this site with CORS enabled, so any domain can use them. Everything under <code>/v1/</code> stays backwards compatible; breaking changes ship as <code>/v2/</code>.</p>
+          <textarea class="code-src" data-lang="html" hidden><link rel="stylesheet" href="{{DS_URL}}/ds.css">
+<script type="module" src="{{DS_URL}}/ds.js"></script></textarea>
+          <p>Prefer a classic script (no modules)? Use <code>ds.iife.js</code> instead. Both expose the same API on <code>window.DS</code>.</p>
+          <h3>In a Vite app</h3>
+          <p>Keep the URL in an env variable so local development can point at a local copy of the design system:</p>
+          <textarea class="code-src" data-lang="html" hidden><!-- index.html -->
+<link rel="stylesheet" href="&#37;VITE_DS_URL&#37;/ds.css">
+<script type="module" src="&#37;VITE_DS_URL&#37;/ds.js"></script></textarea>
+          <textarea class="code-src" data-lang="sh" hidden># .env
+VITE_DS_URL={{DS_URL}}
+
+# .env.localds (vite --mode localds, with the design system running on :5174)
+VITE_DS_URL=http://localhost:5174/v1</textarea>
+          <h3>Starter page</h3>
+          <textarea class="code-src" data-lang="html" hidden><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My app</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash of the wrong theme.
+      try {
+        const t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="{{DS_URL}}/ds.css">
+    <script type="module" src="{{DS_URL}}/ds.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Hello</h1>
+      <button class="btn btn-primary">Get started</button>
+    </main>
+  </body>
+</html></textarea>
+        </section>
+
+        <section class="docs-section" id="theming">
+          <h2>Theming</h2>
+          <p>Colors are defined with <code>light-dark()</code>, so the whole system follows the OS theme by default. Set <code>data-theme="light"</code> or <code>data-theme="dark"</code> on <code>&lt;html&gt;</code> to force one. Any button with <code>data-theme-value</code> switches and remembers the theme.</p>
+          <div class="example" data-code>
+            <div class="theme-switch" role="group" aria-label="Theme">
+              <button type="button" data-theme-value="system" aria-label="System theme">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+              </button>
+              <button type="button" data-theme-value="light" aria-label="Light theme">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+              </button>
+              <button type="button" data-theme-value="dark" aria-label="Dark theme">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+              </button>
+            </div>
+          </div>
+          <p>To rebrand an app, override tokens after loading <code>ds.css</code>:</p>
+          <textarea class="code-src" data-lang="css" hidden>:root {
+  --accent: light-dark(#7c3aed, #a78bfa);
+  --accent-hover: light-dark(#6d28d9, #c4b5fd);
+  --accent-soft: light-dark(rgb(124 58 237 / 0.08), rgb(167 139 250 / 0.16));
+  --focus: light-dark(rgb(124 58 237 / 0.35), rgb(167 139 250 / 0.5));
+  --radius-lg: 12px;
+}</textarea>
+        </section>
+
+        <!-- ===================== FOUNDATIONS ===================== -->
+
+        <section class="docs-section" id="colors">
+          <h2>Colors</h2>
+          <p>Use tokens, never raw hex values, so components adapt to both themes. Values below update when you switch theme.</p>
+          <div id="swatches" class="swatch-groups"></div>
+        </section>
+
+        <section class="docs-section" id="typography">
+          <h2>Typography</h2>
+          <p>System UI font first (SF Pro on Apple devices), Inter everywhere else. Base size is 14px with a 1.45 line height.</p>
+          <div class="example stack" data-code>
+            <h1>Heading 1 · 32px</h1>
+            <h2>Heading 2 · 24px</h2>
+            <h3>Heading 3 · 20px</h3>
+            <h4>Heading 4 · 17px</h4>
+            <h5>Heading 5 · 15px</h5>
+            <h6>Heading 6 · 13px</h6>
+            <p class="m-0">Body text at 14px. <a href="#typography">Links use the accent color</a>, <strong>bold</strong>, <code>inline code</code> and <kbd>⌘</kbd> <kbd>K</kbd>.</p>
+            <p class="hint">Hint text: 12px muted, for help under fields.</p>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Token</th><th>Size</th><th>Use</th></tr></thead>
+              <tbody>
+                <tr><td><code>--text-xs</code></td><td>11px</td><td>Range labels, menu labels</td></tr>
+                <tr><td><code>--text-sm</code></td><td>12px</td><td>Hints, badges, meta</td></tr>
+                <tr><td><code>--text-md</code></td><td>13px</td><td>Buttons, labels, controls</td></tr>
+                <tr><td><code>--text-base</code></td><td>14px</td><td>Body</td></tr>
+                <tr><td><code>--text-lg</code></td><td>17px</td><td>Card and dialog titles</td></tr>
+                <tr><td><code>--text-xl</code></td><td>22px</td><td>Page titles</td></tr>
+                <tr><td><code>--text-2xl</code> / <code>--text-3xl</code></td><td>28px / 40px</td><td>Marketing headings</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="docs-section" id="spacing">
+          <h2>Spacing</h2>
+          <p>A 4px grid. Use <code>var(--space-*)</code> for padding, margins and gaps.</p>
+          <div class="example">
+            <div class="space-scale" id="space-scale"></div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="radius">
+          <h2>Radius &amp; elevation</h2>
+          <div class="example">
+            <div class="token-tiles" id="radius-tiles"></div>
+          </div>
+          <div class="example">
+            <div class="token-tiles" id="shadow-tiles"></div>
+          </div>
+        </section>
+
+        <!-- ===================== COMPONENTS ===================== -->
+
+        <section class="docs-section" id="buttons">
+          <h2>Buttons</h2>
+          <p>Pill-shaped buttons. The default is a tinted secondary button; add a modifier for other styles.</p>
+          <div class="example cluster" data-code>
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn">Secondary</button>
+            <button type="button" class="btn btn-contrast">Contrast</button>
+            <button type="button" class="btn btn-outline">Outline</button>
+            <button type="button" class="btn btn-ghost">Ghost</button>
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-danger-soft">Danger soft</button>
+          </div>
+          <h3>Sizes, icons and states</h3>
+          <div class="example cluster" data-code>
+            <button type="button" class="btn btn-primary btn-sm">Small</button>
+            <button type="button" class="btn btn-primary">Default</button>
+            <button type="button" class="btn btn-primary btn-lg">Large</button>
+            <button type="button" class="btn btn-contrast">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+              Download
+            </button>
+            <button type="button" class="btn btn-primary" aria-busy="true">Saving…</button>
+            <button type="button" class="btn btn-primary" disabled>Disabled</button>
+            <a class="btn" href="#buttons">Link as button</a>
+          </div>
+          <div class="example" data-code>
+            <button type="button" class="btn btn-primary btn-block">Block button</button>
+          </div>
+        </section>
+
+        <section class="docs-section" id="icon-buttons">
+          <h2>Icon buttons</h2>
+          <p>Square buttons for a single icon. Always give them an <code>aria-label</code>. Use <code>aria-pressed</code> for toggles.</p>
+          <div class="example cluster" data-code>
+            <button type="button" class="icon-btn" aria-label="Download">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+            </button>
+            <button type="button" class="icon-btn" aria-pressed="true" aria-label="Crop">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg>
+            </button>
+            <button type="button" class="icon-btn icon-btn-sm" aria-label="Edit">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>
+            </button>
+            <button type="button" class="icon-btn icon-btn-lg icon-btn-round" aria-label="Add">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <button type="button" class="icon-btn icon-btn-plain" aria-label="Remove">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="docs-section" id="chips">
+          <h2>Chips</h2>
+          <p>Small pill buttons for presets and filters. Mark the active one with <code>aria-pressed="true"</code>.</p>
+          <div class="example" data-code>
+            <div class="chips" role="group" aria-label="Aspect ratio">
+              <button type="button" class="chip" aria-pressed="true">Free</button>
+              <button type="button" class="chip" aria-pressed="false">1:1</button>
+              <button type="button" class="chip" aria-pressed="false">4:3</button>
+              <button type="button" class="chip" aria-pressed="false">16:9</button>
+              <button type="button" class="chip" aria-pressed="false">9:16</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="badges">
+          <h2>Badges</h2>
+          <div class="example cluster" data-code>
+            <span class="badge">Neutral</span>
+            <span class="badge badge-accent">Accent</span>
+            <span class="badge badge-success">−42%</span>
+            <span class="badge badge-warning">Beta</span>
+            <span class="badge badge-danger">+8%</span>
+            <span class="badge badge-solid">New</span>
+            <span class="badge badge-success badge-dot">Online</span>
+          </div>
+        </section>
+
+        <section class="docs-section" id="alerts">
+          <h2>Alerts</h2>
+          <p>Inline messages. Add a button with <code>data-ds-dismiss</code> to let people close it.</p>
+          <div class="example stack" data-code>
+            <div class="alert" role="status">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+              <div class="alert-content">
+                <p class="alert-title">Heads up</p>
+                <p>Your images are processed on this device and never uploaded.</p>
+              </div>
+            </div>
+            <div class="alert alert-success" role="status">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>
+              <div class="alert-content"><p>12 images converted, 4.2 MB saved.</p></div>
+              <button type="button" class="icon-btn icon-btn-sm icon-btn-plain" data-ds-dismiss aria-label="Dismiss">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+              </button>
+            </div>
+            <div class="alert alert-warning" role="status">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
+              <div class="alert-content"><p>Storage is almost full. Older history items will be removed.</p></div>
+            </div>
+            <div class="alert alert-danger" role="alert">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+              <div class="alert-content">
+                <p class="alert-title">Conversion failed</p>
+                <p>This file appears to be damaged.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="cards">
+          <h2>Cards</h2>
+          <p>Elevated containers. Use <code>.surface</code> alone for a plain panel with your own layout.</p>
+          <div class="example grid-auto" data-code>
+            <article class="card">
+              <div class="card-media checkerboard"></div>
+              <div class="card-body">
+                <h3 class="card-title">photo.webp</h3>
+                <p class="card-subtitle">1920×1080 · 214 KB</p>
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-ghost btn-sm">Remove</button>
+                <button type="button" class="btn btn-primary btn-sm">Download</button>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">
+                <h3 class="card-title">Storage</h3>
+                <p class="card-subtitle">Saved on this device</p>
+              </div>
+              <div class="card-body stack">
+                <progress class="progress" value="64" max="100">64%</progress>
+                <span class="text-sm text-muted">320 MB of 500 MB used</span>
+              </div>
+            </article>
+            <div class="card card-flat">
+              <div class="card-body">
+                <h3 class="card-title">Flat card</h3>
+                <p class="card-subtitle m-0">No shadow, for nesting inside a surface.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="navbar">
+          <h2>Navbar</h2>
+          <p>Sticky, translucent app header. It is <code>position: sticky</code>, so place it as the first child of <code>&lt;body&gt;</code>.</p>
+          <div class="example example-flush" data-code>
+            <header class="navbar">
+              <div class="navbar-inner">
+                <a class="navbar-brand" href="#navbar">
+                  <img class="navbar-logo" src="/favicon.svg" alt="" width="32" height="32">
+                  <div>
+                    <p class="navbar-title">App name</p>
+                    <p class="navbar-tagline">Short tagline</p>
+                  </div>
+                </a>
+                <nav class="navbar-nav" aria-label="Main">
+                  <a href="#navbar" aria-current="page">Home</a>
+                  <a href="#navbar">Pricing</a>
+                  <a href="#navbar">About</a>
+                </nav>
+                <div class="navbar-actions">
+                  <button type="button" class="btn btn-primary btn-sm">Sign in</button>
+                </div>
+              </div>
+            </header>
+          </div>
+        </section>
+
+        <section class="docs-section" id="tabs">
+          <h2>Tabs</h2>
+          <p>Add <code>data-ds-tabs</code> to a <code>role="tablist"</code>. Each tab points at its panel with <code>aria-controls</code>. Arrow keys move between tabs.</p>
+          <div class="example" data-code>
+            <div class="tabs" role="tablist" data-ds-tabs aria-label="Settings">
+              <button type="button" class="tab" role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true">General</button>
+              <button type="button" class="tab" role="tab" id="tab-b" aria-controls="panel-b">Compression</button>
+              <button type="button" class="tab" role="tab" id="tab-c" aria-controls="panel-c">Advanced</button>
+            </div>
+            <div class="tab-panel" role="tabpanel" id="panel-a" aria-labelledby="tab-a">General settings go here.</div>
+            <div class="tab-panel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>Quality and effort.</div>
+            <div class="tab-panel" role="tabpanel" id="panel-c" aria-labelledby="tab-c" hidden>Metadata and color profiles.</div>
+          </div>
+          <div class="example" data-code>
+            <div class="tabs tabs-pill" role="tablist" data-ds-tabs aria-label="Period">
+              <button type="button" class="tab" role="tab" aria-selected="true">Day</button>
+              <button type="button" class="tab" role="tab">Week</button>
+              <button type="button" class="tab" role="tab">Month</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="dropdown">
+          <h2>Dropdown</h2>
+          <p>A <code>.dropdown</code> with a toggle (<code>data-ds-toggle="dropdown"</code>) and a <code>.menu</code>. Closes on outside click, <kbd>Esc</kbd> or choosing an item. Use <code>.dropdown-end</code> to align right.</p>
+          <div class="example example-tall cluster" data-code>
+            <div class="dropdown">
+              <button type="button" class="btn" data-ds-toggle="dropdown" aria-expanded="false" aria-haspopup="menu">
+                Options
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div class="menu" role="menu">
+                <p class="menu-label">Image</p>
+                <button type="button" class="menu-item" role="menuitem">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/></svg>
+                  Crop <kbd>C</kbd>
+                </button>
+                <button type="button" class="menu-item" role="menuitem">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+                  Download <kbd>D</kbd>
+                </button>
+                <div class="menu-divider" role="separator"></div>
+                <button type="button" class="menu-item menu-item-danger" role="menuitem">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="dialog">
+          <h2>Dialog</h2>
+          <p>Built on the native <code>&lt;dialog&gt;</code> element: focus trapping and <kbd>Esc</kbd> come for free. Open with <code>data-ds-open="#id"</code>, close with <code>data-ds-close</code>. <code>data-ds-dismissible</code> also closes it on a backdrop click.</p>
+          <div class="example" data-code>
+            <button type="button" class="btn btn-primary" data-ds-open="#demo-dialog">Open dialog</button>
+            <dialog class="dialog dialog-sm" id="demo-dialog" aria-labelledby="demo-dialog-title" data-ds-dismissible>
+              <div class="dialog-header">
+                <h2 class="dialog-title" id="demo-dialog-title">Clear history?</h2>
+                <button type="button" class="icon-btn icon-btn-sm icon-btn-plain" data-ds-close aria-label="Close">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+              </div>
+              <div class="dialog-body">
+                <p>All 24 saved images will be removed from this device. This can't be undone.</p>
+              </div>
+              <div class="dialog-footer">
+                <button type="button" class="btn" data-ds-close>Cancel</button>
+                <button type="button" class="btn btn-danger" data-ds-close="confirm">Clear history</button>
+              </div>
+            </dialog>
+          </div>
+          <p>The <code>returnValue</code> of the dialog is the value of the <code>data-ds-close</code> button that closed it, so you can listen for <code>close</code>:</p>
+          <textarea class="code-src" data-lang="js" hidden>const dialog = document.querySelector('#demo-dialog');
+dialog.addEventListener('close', () => {
+  if (dialog.returnValue === 'confirm') clearHistory();
+});</textarea>
+        </section>
+
+        <section class="docs-section" id="toast">
+          <h2>Toast</h2>
+          <p>Short, non-blocking notifications, created from JavaScript.</p>
+          <div class="example cluster">
+            <button type="button" class="btn" data-demo-toast="info">Info</button>
+            <button type="button" class="btn" data-demo-toast="success">Success</button>
+            <button type="button" class="btn" data-demo-toast="warning">Warning</button>
+            <button type="button" class="btn" data-demo-toast="danger">Danger</button>
+            <button type="button" class="btn" data-demo-toast="action">With action</button>
+          </div>
+          <textarea class="code-src" data-lang="js" hidden>DS.toast('Saved to history');
+DS.toast('12 images converted', { variant: 'success' });
+DS.toast('Image removed', {
+  duration: 6000,
+  action: { label: 'Undo', onClick: () => restore() },
+});</textarea>
+        </section>
+
+        <section class="docs-section" id="tooltip">
+          <h2>Tooltip</h2>
+          <p>CSS only: add <code>data-tooltip</code>. Keep the text short, and don't put essential information only in a tooltip.</p>
+          <div class="example example-tall cluster" data-code>
+            <button type="button" class="btn" data-tooltip="Shown on top">Hover me</button>
+            <button type="button" class="icon-btn" data-tooltip="Download" data-tooltip-position="bottom" aria-label="Download">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="docs-section" id="accordion">
+          <h2>Accordion</h2>
+          <p>Native <code>&lt;details&gt;</code>, no JavaScript. Give items the same <code>name</code> to allow only one open at a time.</p>
+          <div class="example" data-code>
+            <details class="accordion" name="faq" open>
+              <summary>Are my images uploaded?</summary>
+              <div class="accordion-body"><p>No. Everything runs in your browser.</p></div>
+            </details>
+            <details class="accordion" name="faq">
+              <summary>Which formats are supported?</summary>
+              <div class="accordion-body"><p>JPEG, PNG, WebP, AVIF, HEIC, TIFF, GIF, BMP, SVG and ICO.</p></div>
+            </details>
+            <details class="accordion" name="faq">
+              <summary>Is there a file size limit?</summary>
+              <div class="accordion-body"><p>Only your device's memory.</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="docs-section" id="progress">
+          <h2>Progress &amp; loading</h2>
+          <div class="example stack" data-code>
+            <progress class="progress" value="40" max="100">40%</progress>
+            <progress class="progress progress-success" value="100" max="100">Done</progress>
+            <progress class="progress" aria-label="Loading"></progress>
+          </div>
+          <div class="example cluster" data-code>
+            <span class="spinner spinner-sm" role="status" aria-label="Loading"></span>
+            <span class="spinner" role="status" aria-label="Loading"></span>
+            <span class="spinner spinner-lg" role="status" aria-label="Loading"></span>
+          </div>
+          <div class="example" data-code>
+            <div class="cluster" aria-hidden="true">
+              <span class="skeleton skeleton-circle" style="width: 40px; height: 40px"></span>
+              <div class="grow">
+                <span class="skeleton skeleton-text" style="width: 60%"></span>
+                <span class="skeleton skeleton-text" style="width: 35%"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="table">
+          <h2>Table</h2>
+          <p>Wrap in <code>.table-wrap</code> for rounded corners and horizontal scrolling on small screens. Use <code>.num</code> for right-aligned numbers.</p>
+          <div class="example" data-code>
+            <div class="table-wrap">
+              <table class="table table-hover">
+                <thead>
+                  <tr><th>File</th><th>Format</th><th class="num">Before</th><th class="num">After</th><th>Saved</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>beach.heic</td><td>WebP</td><td class="num">3.4 MB</td><td class="num">412 KB</td><td><span class="badge badge-success">−88%</span></td></tr>
+                  <tr><td>logo.png</td><td>AVIF</td><td class="num">96 KB</td><td class="num">18 KB</td><td><span class="badge badge-success">−81%</span></td></tr>
+                  <tr><td>icon.svg</td><td>PNG</td><td class="num">4 KB</td><td class="num">11 KB</td><td><span class="badge badge-danger">+175%</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="list-group">
+          <h2>List group</h2>
+          <div class="example" data-code>
+            <ul class="list-group">
+              <li>
+                <a class="list-item" href="#list-group">
+                  <span class="avatar avatar-sm">A</span>
+                  <span class="list-item-content">
+                    <span class="list-item-title">Account</span>
+                    <span class="list-item-meta">Name, email, password</span>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-muted" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+                </a>
+              </li>
+              <li>
+                <label class="list-item switch-row">
+                  <span>Save history on this device</span>
+                  <input type="checkbox" class="switch" checked>
+                </label>
+              </li>
+              <li>
+                <div class="list-item">
+                  <span class="list-item-content">Storage used</span>
+                  <span class="text-muted tabular">320 MB</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="docs-section" id="avatar">
+          <h2>Avatar</h2>
+          <div class="example cluster" data-code>
+            <span class="avatar avatar-sm">FR</span>
+            <span class="avatar">AL</span>
+            <span class="avatar avatar-lg">DS</span>
+            <span class="avatar-stack">
+              <span class="avatar avatar-sm">A</span>
+              <span class="avatar avatar-sm">B</span>
+              <span class="avatar avatar-sm">C</span>
+            </span>
+          </div>
+        </section>
+
+        <section class="docs-section" id="empty">
+          <h2>Empty state</h2>
+          <div class="example" data-code>
+            <div class="empty">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>
+              <p class="empty-title">No history yet</p>
+              <p class="hint">Converted images will appear here.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== FORMS ===================== -->
+
+        <section class="docs-section" id="inputs">
+          <h2>Text inputs</h2>
+          <p>Wrap a label and control in <code>.field</code>. Add <code>.input</code> to text, number, email, password, search, select and textarea elements.</p>
+          <div class="example docs-form" data-code>
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input type="email" class="input" placeholder="you@example.com">
+            </label>
+            <label class="field">
+              <span class="field-label">Longest side</span>
+              <span class="input-affix">
+                <input type="number" class="input" value="1920" min="1" inputmode="numeric">
+                <span class="affix">px</span>
+              </span>
+            </label>
+            <label class="field">
+              <span class="field-label">Search</span>
+              <span class="input-affix">
+                <span class="affix affix-start">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                </span>
+                <input type="search" class="input" placeholder="Search files">
+              </span>
+            </label>
+            <div class="cluster">
+              <input type="text" class="input input-sm" placeholder="Small" aria-label="Small input">
+              <input type="text" class="input input-lg" placeholder="Large" aria-label="Large input">
+              <input type="text" class="input" placeholder="Disabled" aria-label="Disabled input" disabled>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="select">
+          <h2>Select &amp; textarea</h2>
+          <div class="example docs-form" data-code>
+            <label class="field">
+              <span class="field-label">Format</span>
+              <select class="input">
+                <option>WebP</option>
+                <option>AVIF</option>
+                <option>JPEG</option>
+                <option>PNG</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field-label">Notes</span>
+              <textarea class="input" placeholder="Anything we should know?"></textarea>
+              <span class="hint">Optional. Max 500 characters.</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="docs-section" id="validation">
+          <h2>Validation</h2>
+          <p>Set <code>aria-invalid="true"</code> on the control (or <code>.is-invalid</code> on the field) and add a <code>.field-error</code> message linked with <code>aria-describedby</code>.</p>
+          <div class="example docs-form" data-code>
+            <label class="field">
+              <span class="field-label">Width</span>
+              <input type="number" class="input" value="0" aria-invalid="true" aria-describedby="width-error">
+              <p class="field-error" id="width-error">Width must be at least 1 px.</p>
+            </label>
+          </div>
+        </section>
+
+        <section class="docs-section" id="checks">
+          <h2>Checkbox &amp; radio</h2>
+          <div class="example cluster" style="--gap: 32px; align-items: flex-start" data-code>
+            <div class="check-list">
+              <label class="check"><input type="checkbox" checked> Keep metadata</label>
+              <label class="check"><input type="checkbox"> Strip color profile</label>
+              <label class="check"><input type="checkbox" disabled> Disabled</label>
+            </div>
+            <div class="check-list" role="radiogroup" aria-label="Naming">
+              <label class="check"><input type="radio" name="naming" checked> Keep file name</label>
+              <label class="check"><input type="radio" name="naming"> Add suffix</label>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="switch">
+          <h2>Switch</h2>
+          <p>An iOS-style toggle: a checkbox with <code>.switch</code>, usually inside a <code>.switch-row</code> label.</p>
+          <div class="example docs-form" data-code>
+            <label class="switch-row">
+              <span>Lossless</span>
+              <input type="checkbox" class="switch">
+            </label>
+            <label class="switch-row">
+              <span>Keep aspect ratio</span>
+              <input type="checkbox" class="switch" checked>
+            </label>
+          </div>
+        </section>
+
+        <section class="docs-section" id="segmented">
+          <h2>Segmented control</h2>
+          <p>A radio group styled as a single control. Use <code>.segmented-grid</code> (with <code>--cols</code>) to wrap many options.</p>
+          <div class="example docs-form" data-code>
+            <div class="segmented" role="radiogroup" aria-label="Effort">
+              <label><input type="radio" name="effort" value="0"><span>Fast</span></label>
+              <label><input type="radio" name="effort" value="1" checked><span>Balanced</span></label>
+              <label><input type="radio" name="effort" value="2"><span>Max</span></label>
+            </div>
+            <div class="segmented segmented-grid" style="--cols: 4" role="radiogroup" aria-label="Format">
+              <label><input type="radio" name="fmt" checked><span>WebP</span></label>
+              <label><input type="radio" name="fmt"><span>AVIF</span></label>
+              <label><input type="radio" name="fmt"><span>JPEG</span></label>
+              <label><input type="radio" name="fmt"><span>PNG</span></label>
+              <label><input type="radio" name="fmt"><span>TIFF</span></label>
+              <label><input type="radio" name="fmt"><span>BMP</span></label>
+              <label><input type="radio" name="fmt"><span>ICO</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="range">
+          <h2>Range</h2>
+          <p>Native range input. <code>ds.js</code> fills the track as you drag; if you change <code>value</code> from code, call <code>DS.syncRange(input)</code>.</p>
+          <div class="example docs-form" data-code>
+            <div class="field">
+              <label class="field-label" for="demo-quality"><span>Quality</span><output id="demo-quality-val" for="demo-quality">80</output></label>
+              <input type="range" id="demo-quality" min="1" max="100" value="80">
+              <div class="range-labels"><span>Smaller file</span><span>Better quality</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="color">
+          <h2>Color</h2>
+          <div class="example docs-form" data-code>
+            <label class="switch-row">
+              <span>Background for transparency</span>
+              <input type="color" value="#ffffff">
+            </label>
+          </div>
+        </section>
+
+        <section class="docs-section" id="dropzone">
+          <h2>Drop zone</h2>
+          <p>Styling for a file drop area. Toggle <code>.is-dragover</code> from your drag events; wire the click to a hidden file input.</p>
+          <div class="example" data-code>
+            <div class="dropzone" tabindex="0" role="button" aria-label="Add images">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8a4 4 0 0 1 .5 7.97"/><path d="M12 12v9m0-9-3 3m3-3 3 3"/></svg>
+              <p class="dropzone-title">Click or drag files here</p>
+              <p class="hint">PNG, JPEG or WebP, up to 50 MB</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== LAYOUT ===================== -->
+
+        <section class="docs-section" id="scrollbars">
+          <h2>Scrollbars</h2>
+          <p>Every scrollable area gets a thin, rounded scrollbar that follows the theme: no class needed. The thumb keeps a small gap from the edges, grows on hover and turns accent while dragged. Tune it with <code>--scrollbar-size</code>, <code>--scrollbar-inset</code>, <code>--scrollbar-thumb</code>, <code>--scrollbar-thumb-hover</code> and <code>--scrollbar-thumb-active</code>. Avoid setting <code>scrollbar-width</code> or <code>scrollbar-color</code> yourself: in Chrome that switches the custom style off.</p>
+          <div class="example grid-auto" style="--min: 240px" data-code>
+            <div class="scroll-y surface p-4" style="height: 160px">
+              <p class="fw-semibold">.scroll-y</p>
+              <p class="text-muted">Scrolls vertically and keeps the scroll inside the box (no scroll chaining to the page).</p>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+              <p class="text-muted">Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            </div>
+            <div class="scroll-y scrollbar-hover surface p-4" style="height: 160px">
+              <p class="fw-semibold">.scrollbar-hover</p>
+              <p class="text-muted">The thumb only appears while the pointer is over the box. Good for sidebars and dense panels.</p>
+              <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+              <p class="text-muted">Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== REFERENCE ===================== -->
+
+        <section class="docs-section" id="utilities">
+          <h2>Utilities</h2>
+          <p>A small set of helpers. Layout helpers read <code>--gap</code> (and <code>--min</code> for the grid) so you can tune them inline.</p>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Class</th><th>Does</th></tr></thead>
+              <tbody>
+                <tr><td><code>.container</code></td><td>Centered page width (<code>--container</code>) with gutters</td></tr>
+                <tr><td><code>.stack</code></td><td>Vertical flex with gap</td></tr>
+                <tr><td><code>.cluster</code></td><td>Wrapping horizontal flex with gap</td></tr>
+                <tr><td><code>.spread</code></td><td>Horizontal flex, items pushed to both ends</td></tr>
+                <tr><td><code>.grid-auto</code></td><td>Responsive grid of columns at least <code>--min</code> wide</td></tr>
+                <tr><td><code>.grow</code></td><td>Take remaining space in a flex row</td></tr>
+                <tr><td><code>.surface</code></td><td>Card background, large radius and shadow</td></tr>
+                <tr><td><code>.text-muted</code>, <code>.text-accent</code>, <code>.text-success</code>, <code>.text-warning</code>, <code>.text-danger</code></td><td>Text colors</td></tr>
+                <tr><td><code>.text-xs</code> … <code>.text-xl</code>, <code>.fw-medium</code>, <code>.fw-semibold</code></td><td>Text size and weight</td></tr>
+                <tr><td><code>.tabular</code>, <code>.mono</code>, <code>.truncate</code></td><td>Tabular numbers, monospace, single-line ellipsis</td></tr>
+                <tr><td><code>.m-0</code>, <code>.mt-2</code>, <code>.mt-4</code>, <code>.mb-2</code>, <code>.mb-4</code>, <code>.p-4</code>, <code>.p-5</code></td><td>Common spacing</td></tr>
+                <tr><td><code>.scroll-y</code>, <code>.scroll-x</code></td><td>Scroll container that does not chain scrolling to the page</td></tr>
+                <tr><td><code>.scrollbar-hover</code>, <code>.scrollbar-none</code></td><td>Show the scrollbar only on hover, or hide it while keeping scroll</td></tr>
+                <tr><td><code>.checkerboard</code></td><td>Transparency backdrop for image previews</td></tr>
+                <tr><td><code>.visually-hidden</code></td><td>Hide visually, keep for screen readers</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="docs-section" id="javascript">
+          <h2>JavaScript API</h2>
+          <p><code>ds.js</code> wires up behaviour through data attributes as soon as it loads; content added later works too. For anything else, use <code>window.DS</code> or import from the module:</p>
+          <textarea class="code-src" data-lang="js" hidden>import { toast, setTheme } from '{{DS_URL}}/ds.js';
+
+setTheme('dark');
+toast('Welcome back', { variant: 'success' });
+
+// or, from any script
+window.DS.openDialog('#settings');</textarea>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Function</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td><code>DS.setTheme(theme, persist = true)</code></td><td><code>'light'</code>, <code>'dark'</code> or <code>'system'</code>. Saved in <code>localStorage['theme']</code>.</td></tr>
+                <tr><td><code>DS.getTheme()</code></td><td>The current theme setting.</td></tr>
+                <tr><td><code>DS.toast(message, options)</code></td><td>Show a toast. Options: <code>variant</code>, <code>duration</code> (ms, 0 = sticky), <code>action</code>. Returns <code>{ dismiss }</code>.</td></tr>
+                <tr><td><code>DS.openDialog(target)</code> / <code>DS.closeDialog(target, value)</code></td><td>Open or close a <code>&lt;dialog&gt;</code> by selector or element.</td></tr>
+                <tr><td><code>DS.selectTab(tab)</code></td><td>Select a tab and show its panel.</td></tr>
+                <tr><td><code>DS.syncRange(input?)</code></td><td>Refresh the filled track of one range input, or all of them.</td></tr>
+                <tr><td><code>DS.version</code></td><td>Library version.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Data attributes</h3>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Attribute</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td><code>data-theme-value="light|dark|system"</code></td><td>Click switches theme; gets <code>aria-pressed</code>.</td></tr>
+                <tr><td><code>data-ds-open="#dialog"</code></td><td>Click opens that dialog.</td></tr>
+                <tr><td><code>data-ds-close="value"</code></td><td>Click closes the surrounding dialog with that return value.</td></tr>
+                <tr><td><code>data-ds-dismissible</code></td><td>On a dialog: close on backdrop click.</td></tr>
+                <tr><td><code>data-ds-dismiss</code></td><td>Click removes the surrounding <code>.alert</code>.</td></tr>
+                <tr><td><code>data-ds-toggle="dropdown"</code></td><td>Toggle of a <code>.dropdown</code>.</td></tr>
+                <tr><td><code>data-ds-tabs</code></td><td>On a <code>role="tablist"</code>: click and keyboard tab switching.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Events</h3>
+          <textarea class="code-src" data-lang="js" hidden>document.addEventListener('ds:themechange', (e) => console.log(e.detail.theme));
+document.addEventListener('ds:tabchange', (e) => console.log(e.detail.tab.id));</textarea>
+        </section>
+
+        <footer class="docs-footer">Basis v<span data-ds-version></span> · Use it as the starting point for every new app.</footer>
+      </main>
+    </div>
+
+    <script>
+      // Capture example markup as authored, before ds.js adds runtime attributes.
+      window.__examples = [...document.querySelectorAll('.example[data-code]')].map((el) => el.innerHTML);
+    </script>
+    <script type="module" src="/docs/docs.ts"></script>
+  </body>
+</html>

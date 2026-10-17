@@ -1,0 +1,9 @@
+/* Basis design system. Load once per app: <link rel="stylesheet" href="https://<ds-host>/v1/ds.css"> */
+@import "@fontsource-variable/inter";
+@import "./css/tokens.css";
+@import "./css/base.css";
+@import "./css/buttons.css";
+@import "./css/forms.css";
+@import "./css/content.css";
+@import "./css/interactive.css";
+@import "./css/utilities.css";
