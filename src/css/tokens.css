@@ -3,37 +3,41 @@
 :root {
   color-scheme: light dark;
 
+  /* Monochrome: white and near-black dominate; color is kept for meaning (status, info). */
+
   /* Surfaces */
-  --bg: light-dark(#f5f5f7, #000000);
-  --surface: light-dark(#ffffff, #1c1c1e);
-  --surface-2: light-dark(#f5f5f7, #2c2c2e);
-  --fill: light-dark(rgb(120 120 128 / 0.12), rgb(118 118 128 / 0.24));
-  --fill-strong: light-dark(rgb(120 120 128 / 0.2), rgb(118 118 128 / 0.36));
-  --separator: light-dark(rgb(60 60 67 / 0.12), rgb(84 84 88 / 0.55));
-  --card-edge: light-dark(rgb(0 0 0 / 0), rgb(255 255 255 / 0.06));
+  --bg: light-dark(#fafafa, #000000);
+  --surface: light-dark(#ffffff, #111111);
+  --surface-2: light-dark(#f4f4f5, #1a1a1a);
+  --fill: light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255 / 0.07));
+  --fill-strong: light-dark(rgb(0 0 0 / 0.09), rgb(255 255 255 / 0.13));
+  --separator: light-dark(rgb(0 0 0 / 0.08), rgb(255 255 255 / 0.09));
+  --card-edge: light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.08));
 
   /* Text */
-  --text: light-dark(#1d1d1f, #f5f5f7);
-  --muted: light-dark(#6e6e73, #98989d);
+  --text: light-dark(#0a0a0a, #fafafa);
+  --muted: light-dark(#71717a, #a1a1aa);
 
-  /* Brand */
-  --accent: light-dark(#0071e3, #0a84ff);
-  --accent-hover: light-dark(#0077ed, #409cff);
-  --accent-soft: light-dark(rgb(0 113 227 / 0.07), rgb(10 132 255 / 0.14));
-  --on-accent: #ffffff;
-  --focus: light-dark(rgb(0 113 227 / 0.35), rgb(10 132 255 / 0.5));
+  /* Brand: black on light, white on dark */
+  --accent: light-dark(#0a0a0a, #fafafa);
+  --accent-hover: light-dark(#27272a, #e4e4e7);
+  --accent-soft: light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.1));
+  --on-accent: light-dark(#ffffff, #0a0a0a);
+  --focus: light-dark(rgb(0 0 0 / 0.22), rgb(255 255 255 / 0.32));
 
-  /* Status */
-  --success: light-dark(#248a3d, #30d158);
-  --success-soft: light-dark(rgb(52 199 89 / 0.14), rgb(48 209 88 / 0.18));
-  --warning: light-dark(#b25000, #ff9f0a);
-  --warning-soft: light-dark(rgb(255 149 0 / 0.14), rgb(255 159 10 / 0.18));
-  --danger: light-dark(#d70015, #ff453a);
-  --danger-soft: light-dark(rgb(255 59 48 / 0.1), rgb(255 69 58 / 0.18));
+  /* Status (and info, for in-progress work) */
+  --info: light-dark(#0062cc, #3b9eff);
+  --info-soft: light-dark(rgb(0 98 204 / 0.09), rgb(59 158 255 / 0.16));
+  --success: light-dark(#15803d, #34d399);
+  --success-soft: light-dark(rgb(21 128 61 / 0.1), rgb(52 211 153 / 0.15));
+  --warning: light-dark(#b45309, #fbbf24);
+  --warning-soft: light-dark(rgb(180 83 9 / 0.1), rgb(251 191 36 / 0.15));
+  --danger: light-dark(#dc2626, #f87171);
+  --danger-soft: light-dark(rgb(220 38 38 / 0.08), rgb(248 113 113 / 0.15));
 
   /* Controls */
-  --segment-on: light-dark(#ffffff, #636366);
-  --switch-off: light-dark(#e9e9eb, #39393d);
+  --segment-on: light-dark(#ffffff, #2a2a2a);
+  --switch-off: light-dark(#e4e4e7, #3f3f46);
   --knob: #ffffff;
 
   /* Typography */
@@ -68,7 +72,7 @@
   --radius-full: 999px;
 
   /* Elevation */
-  --shadow-color: light-dark(rgb(0 0 0 / 0.05), rgb(0 0 0 / 0.5));
+  --shadow-color: light-dark(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.6));
   --shadow-sm: 0 1px 2px var(--shadow-color);
   --shadow-md: 0 0 0 1px var(--card-edge), 0 1px 2px var(--shadow-color), 0 8px 28px var(--shadow-color);
   --shadow-lg: 0 0 0 1px var(--card-edge), 0 24px 64px rgb(0 0 0 / 0.3);
@@ -81,8 +85,8 @@
   --scrollbar-size: 10px;
   /* Transparent space around the thumb, so it never touches the content or the edge. */
   --scrollbar-inset: 2.5px;
-  --scrollbar-thumb: light-dark(rgb(60 60 67 / 0.24), rgb(235 235 245 / 0.2));
-  --scrollbar-thumb-hover: light-dark(rgb(60 60 67 / 0.42), rgb(235 235 245 / 0.38));
+  --scrollbar-thumb: light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2));
+  --scrollbar-thumb-hover: light-dark(rgb(0 0 0 / 0.38), rgb(255 255 255 / 0.36));
   --scrollbar-thumb-active: var(--accent);
 
   /* Layout */

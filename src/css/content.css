@@ -27,7 +27,7 @@
 }
 .navbar-brand { display: flex; align-items: center; gap: var(--space-3); color: inherit; text-decoration: none; }
 .navbar-brand:hover { text-decoration: none; }
-.navbar-logo { flex-shrink: 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgb(0 113 227 / 0.3); }
+.navbar-logo { flex-shrink: 0; border-radius: var(--radius); box-shadow: 0 2px 8px rgb(0 0 0 / 0.18); }
 .navbar-title { font-size: var(--text-lg); font-weight: 600; margin: 0; letter-spacing: -0.02em; }
 .navbar-tagline { margin: 0; font-size: var(--text-sm); color: var(--muted); }
 .navbar-nav { display: flex; align-items: center; gap: 2px; margin-right: auto; margin-left: var(--space-4); }
@@ -84,6 +84,7 @@
 }
 .badge:empty { display: none; }
 .badge-accent { color: var(--accent); background: var(--accent-soft); }
+.badge-info { color: var(--info); background: var(--info-soft); }
 .badge-success { color: var(--success); background: var(--success-soft); }
 .badge-warning { color: var(--warning); background: var(--warning-soft); }
 .badge-danger { color: var(--danger); background: var(--danger-soft); }
