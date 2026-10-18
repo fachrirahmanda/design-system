@@ -64,11 +64,11 @@
   --space-12: 48px;
 
   /* Radius */
-  --radius-sm: 8px;
-  --radius: 10px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-xl: 20px;
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
   --radius-full: 999px;
 
   /* Elevation */
