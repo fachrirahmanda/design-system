@@ -236,8 +236,9 @@ progress.progress:indeterminate::-moz-progress-bar { background: transparent; }
   display: block;
   min-height: 1em;
   border-radius: var(--radius-sm);
-  background: linear-gradient(90deg, var(--fill) 25%, var(--fill-strong) 50%, var(--fill) 75%) 0 0 / 300% 100%;
-  animation: ds-shimmer 1.4s ease-in-out infinite;
+  /* A bright band sweeping across, visible on white and on black. */
+  background: linear-gradient(100deg, light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.07)) 0%, light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.07)) 38%, light-dark(rgb(0 0 0 / 0.14), rgb(255 255 255 / 0.17)) 50%, light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.07)) 62%, light-dark(rgb(0 0 0 / 0.06), rgb(255 255 255 / 0.07)) 100%) 0 0 / 250% 100%;
+  animation: ds-shimmer 1.3s ease-in-out infinite;
 }
 .skeleton-text { height: 12px; margin: 6px 0; }
 .skeleton-circle { border-radius: 50%; }
