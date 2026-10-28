@@ -16,7 +16,7 @@
 
   /* Text */
   --text: light-dark(#0a0a0a, #fafafa);
-  --muted: light-dark(#71717a, #a1a1aa);
+  --muted: light-dark(#6c6c75, #a1a1aa);
 
   /* Brand: black on light, white on dark */
   --accent: light-dark(#0a0a0a, #fafafa);
@@ -28,12 +28,12 @@
   /* Status (and info, for in-progress work) */
   --info: light-dark(#0062cc, #3b9eff);
   --info-soft: light-dark(rgb(0 98 204 / 0.09), rgb(59 158 255 / 0.16));
-  --success: light-dark(#15803d, #34d399);
-  --success-soft: light-dark(rgb(21 128 61 / 0.1), rgb(52 211 153 / 0.15));
-  --warning: light-dark(#b45309, #fbbf24);
-  --warning-soft: light-dark(rgb(180 83 9 / 0.1), rgb(251 191 36 / 0.15));
-  --danger: light-dark(#dc2626, #f87171);
-  --danger-soft: light-dark(rgb(220 38 38 / 0.08), rgb(248 113 113 / 0.15));
+  --success: light-dark(#137438, #34d399);
+  --success-soft: light-dark(rgb(19 116 56 / 0.1), rgb(52 211 153 / 0.15));
+  --warning: light-dark(#a24b08, #fbbf24);
+  --warning-soft: light-dark(rgb(162 75 8 / 0.1), rgb(251 191 36 / 0.15));
+  --danger: light-dark(#c62222, #f87171);
+  --danger-soft: light-dark(rgb(198 34 34 / 0.08), rgb(248 113 113 / 0.15));
 
   /* Controls */
   --segment-on: light-dark(#ffffff, #2a2a2a);
@@ -43,7 +43,7 @@
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter Variable", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
-  --text-xs: 11px;
+  --text-xs: 12px;
   --text-sm: 12px;
   --text-md: 13px;
   --text-base: 14px;

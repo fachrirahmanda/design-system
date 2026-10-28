@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && vite build -c vite.lib.config.ts && vite build -c vite.lib.config.ts --mode iife",
+    "build": "node scripts/check-contrast.mjs && tsc --noEmit && vite build && vite build -c vite.lib.config.ts && vite build -c vite.lib.config.ts --mode iife",
     "preview": "wrangler pages dev dist --port 5174",
     "deploy": "npm run build && wrangler pages deploy --branch main"
   },

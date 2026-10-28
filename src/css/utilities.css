@@ -23,6 +23,8 @@
 .tabular { font-variant-numeric: tabular-nums; }
 .mono { font-family: var(--font-mono); }
 .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Running text at a readable measure (about 65 characters a line). */
+.prose { max-width: 65ch; }
 
 .m-0 { margin: 0; }
 .mt-2 { margin-top: var(--space-2); }
