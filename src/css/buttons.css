@@ -30,11 +30,12 @@
 .btn-ghost:hover:not(:disabled) { background: var(--fill); }
 .btn-outline { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1px var(--separator); }
 .btn-outline:hover:not(:disabled) { background: var(--fill); }
-.btn-danger { background: var(--danger); color: #fff; }
+/* Solid status buttons: white text on the dark light-theme colours, near-black on the bright dark-theme ones (4.5:1 or more either way). */
+.btn-danger { background: var(--danger); color: light-dark(#fff, #0a0a0a); }
 .btn-danger:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 88%, #000); }
 .btn-danger-soft { background: var(--danger-soft); color: var(--danger); }
 .btn-danger-soft:hover:not(:disabled) { background: color-mix(in srgb, var(--danger) 20%, transparent); }
-.btn-success { background: var(--success); color: #fff; }
+.btn-success { background: var(--success); color: light-dark(#fff, #0a0a0a); }
 .btn-success:hover:not(:disabled) { background: color-mix(in srgb, var(--success) 88%, #000); }
 
 .btn-sm { padding: 5px 12px; font-size: var(--text-sm); }
