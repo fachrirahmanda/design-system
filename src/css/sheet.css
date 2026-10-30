@@ -1,0 +1,222 @@
+/* Phone sheets and the More list, from Silpasala (mobile.css: dialogs as bottom sheets, more-list).
+   Add class "ds-sheet" to a Basis dialog: on phones (720px and under) it rises from the bottom edge
+   with a grab handle; on larger screens it stays a centred dialog. */
+
+@media (max-width: 720px) {
+  .dialog.ds-sheet {
+    --leave: down;
+    width: 100%;
+    max-width: none;
+    max-height: calc(100dvh - 40px - env(safe-area-inset-top));
+    margin: auto 0 0;
+    border-radius: 14px 14px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .dialog.ds-sheet[open] {
+    animation: ds-sheet-up 0.34s cubic-bezier(0.2, 0.9, 0.3, 1);
+  }
+
+  /* A grab handle, like native sheets. */
+  .dialog.ds-sheet > .dialog-header {
+    position: relative;
+    padding-top: 22px;
+  }
+
+  .dialog.ds-sheet > .dialog-header::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 38px;
+    height: 5px;
+    margin-left: -19px;
+    border-radius: 999px;
+    background: var(--fill-strong);
+  }
+}
+
+@keyframes ds-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* The other sections as a list: an icon tile, the label, and a chevron. */
+.ds-more-list {
+  display: flex;
+  flex-direction: column;
+  margin: -4px 0 4px;
+}
+
+.ds-more-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  margin: 0;
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--separator);
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ds-more-item:last-child {
+  border-bottom: 0;
+}
+
+.ds-more-item:hover {
+  text-decoration: none;
+}
+
+.ds-more-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  background: var(--fill);
+  color: var(--muted);
+}
+
+.ds-more-item[aria-current="page"] .ds-more-icon {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.ds-more-chevron {
+  margin-left: auto;
+  color: var(--muted);
+}
+
+/* Notifications panel: a centred dialog with a list of entries, each with an avatar, the text, the
+   time and any actions, from Silpasala (app.css: notif-sheet, notif-item). New entries are tinted. */
+.dialog.ds-notif-sheet {
+  width: min(420px, 92vw);
+}
+
+.ds-notif-sheet .dialog-body {
+  padding-top: 4px;
+}
+
+.ds-notif-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-notif-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 8px;
+  border-radius: var(--radius-md);
+  color: var(--text);
+}
+
+.ds-notif-item:hover {
+  background: var(--fill);
+}
+
+.ds-notif-item.is-new {
+  background: var(--accent-soft);
+}
+
+.ds-notif-item .avatar {
+  --avatar-size: 28px;
+  flex-shrink: 0;
+}
+
+.ds-notif-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.ds-notif-text {
+  font-size: var(--text-md);
+  line-height: 1.4;
+}
+
+.ds-notif-meta {
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+/* Side panel, from Silpasala's notification and filter panels. On wide screens it slides in from the right edge,
+   full height and square. On phones (720px and under) it is a popup in the middle of the screen. Add class
+   "ds-side-panel" to a Basis dialog. Forms that add something use it, so desktop and phone look the same. */
+.dialog.ds-side-panel {
+  margin: 0 0 0 auto;
+  width: min(440px, 100vw);
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  max-height: none;
+  border-radius: 0;
+  box-shadow: -1px 0 0 var(--separator), -16px 0 48px rgb(0 0 0 / 0.18);
+}
+
+.dialog.ds-side-panel[open] {
+  display: flex;
+  flex-direction: column;
+  animation: ds-side-panel-in 0.28s var(--ease);
+}
+
+.dialog.ds-side-panel > .dialog-body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.dialog.ds-side-panel > .dialog-footer {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+@keyframes ds-side-panel-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+/* Popup on touch phones only. A narrow desktop window keeps the side panel. */
+@media (max-width: 720px) and (pointer: coarse) {
+  .dialog.ds-side-panel {
+    width: min(440px, calc(100vw - 32px));
+    height: auto;
+    max-height: calc(100dvh - 48px);
+    margin: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 64px rgb(0 0 0 / 0.25);
+  }
+
+  .dialog.ds-side-panel[open] {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog.ds-side-panel[open] {
+    animation: none;
+  }
+}
+
+/* A side panel is not a modal over the page: no dimming behind it, like the sidebar. */
+.dialog.ds-side-panel::backdrop {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}

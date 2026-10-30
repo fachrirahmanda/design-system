@@ -1,0 +1,88 @@
+/* Sign-in card, from Silpasala (app.css: login-card, google-btn, login-note). The card has no box of its
+   own: the page behind it sets the ground. The Google button is a surface with a hairline, and the note
+   sits on the fill. */
+
+.ds-login-card {
+  width: min(400px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ds-login-card-head h1 {
+  margin: 0 0 6px;
+  font-size: 30px;
+  letter-spacing: -0.02em;
+}
+
+.ds-login-card-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-base);
+}
+
+.ds-login-card .alert {
+  text-align: left;
+}
+
+.ds-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px var(--separator), 0 1px 2px var(--shadow-color);
+  transition: box-shadow 0.15s, transform 0.1s, background 0.15s;
+}
+
+.ds-google-btn:hover:not(:disabled) {
+  text-decoration: none;
+  background: color-mix(in srgb, var(--surface) 94%, var(--accent));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--separator) 50%, var(--accent)), 0 6px 18px var(--shadow-color);
+}
+
+.ds-google-btn:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.ds-google-btn:disabled,
+.ds-google-btn.is-disabled {
+  opacity: 0.4;
+  cursor: wait;
+  pointer-events: none;
+}
+
+.ds-google-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+.ds-login-note {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: var(--fill);
+  color: var(--muted);
+  font-size: var(--text-md);
+  line-height: 1.45;
+  text-align: left;
+}
+
+.ds-login-note svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}

@@ -178,3 +178,29 @@ a.list-item:hover, button.list-item:hover { background: var(--fill); text-decora
 /* ---------- checkerboard (transparency backdrop) ---------- */
 
 .checkerboard { background: repeating-conic-gradient(var(--fill) 0 25%, transparent 0 50%) 0 0 / 12px 12px; }
+
+/* Page head: the title and its action (a button) share the top row. On phones the action stays on the right of the
+   title, and the content aligns to the top instead of the middle. */
+.ds-page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 720px) {
+  .ds-page-head {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+  }
+
+  .ds-page-head > :first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .ds-page-head > .btn {
+    flex-shrink: 0;
+  }
+}

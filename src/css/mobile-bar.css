@@ -1,0 +1,49 @@
+/* Phone top bar: brand, notifications and the account, from Silpasala (mobile.css: mobile-bar).
+   Shown up to 720px, where the sidebar is hidden. The account opens a sheet with Profile and Sign out. */
+
+.ds-mobile-bar {
+  display: none;
+}
+
+.ds-mobile-avatar {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 720px) {
+  .ds-mobile-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 52px;
+    padding: 0 10px 0 16px;
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--separator);
+  }
+
+  .ds-mobile-bar > .ds-sidebar-brand {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ds-mobile-bar .badge {
+    position: absolute;
+    top: 2px;
+    right: 0;
+  }
+
+  .ds-mobile-bar .icon-btn {
+    position: relative;
+  }
+}
